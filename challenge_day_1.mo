@@ -1,3 +1,4 @@
+
 actor {
     /* Challenge 1 : Write a function add that takes two natural numbers n and m and returns the sum */
     public func add_two_nums(n1:Nat, n2:Nat): async Nat{
@@ -76,8 +77,9 @@ actor {
         };  
     };
 
-    /*Challenge 9 : Write a function remove_from_array that takes 2 parameters : an array of natural numbers and a natural number n and returns a new array where all occurences of n have been removed (order should remain unchanged).
+    /*Challenge 9 : Write a function remove_from_array that takes 2 parameters : an array of natural numbers and a natural number n and returns a new array where all occurences of n have been removed (order should remain unchanged).*/
 
+    import Array "mo:base/Array";
     public func remove_from_array(array:[Nat], n:Nat) : async Nat{
         var new_array : [Nat] = [];
         if (array == []){
@@ -85,10 +87,16 @@ actor {
         } else {
             for (num in array.vals()) {
                 if (num != n){
-                    new_array.append[num];
+                    new_array = Array.append(new_array, num);
                 };
             };
         };  
         return new_array;
+    };
+
+    /*Challenge 10 : Implement a function selection_sort that takes an array of natural numbers and returns the sorted array
+
+    public func selection_sort(array:[Nat]){
+
     };*/
 };
