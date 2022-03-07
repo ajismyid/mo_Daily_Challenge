@@ -29,9 +29,9 @@ actor {
 
     public func divide_two_nums(n:Nat, m:Nat) : async Text{
         if (m%n == 0) {
-            return ("n divides m")
+            return ("n divides m");
         } else {
-            return ("n NOT divides m")
+            return ("n NOT divides m");
         };
     };
     
@@ -39,9 +39,9 @@ actor {
 
     public func is_even(n:Nat) : async Text{
         if ( n%2 == 0 ) {
-            return ("n is even number")
+            return ("n is even number");
         } else {
-            return ("n is odd number")
+            return ("n is odd number");
         };
     };
 
@@ -51,7 +51,7 @@ actor {
     public func sum_of_array(array:[Nat]) : async Nat{
         var sum = 0;
         if (array == []){
-            return 0
+            return 0;
         } else {
             for (num in array.vals()) {
                 sum += num;
@@ -65,14 +65,30 @@ actor {
     public func max_num_in_array(array:[Nat]) : async Nat{
         var max = 0;
         if (array == []){
-            return 0
+            return 0;
         } else {
             for (num in array.vals()) {
                 if (num >= max){
-                    max := num
+                    max := num;
                 };
             };
             return max;
         };  
     };
+
+    /*Challenge 9 : Write a function remove_from_array that takes 2 parameters : an array of natural numbers and a natural number n and returns a new array where all occurences of n have been removed (order should remain unchanged).
+
+    public func remove_from_array(array:[Nat], n:Nat) : async Nat{
+        var new_array : [Nat] = [];
+        if (array == []){
+            return 0;
+        } else {
+            for (num in array.vals()) {
+                if (num != n){
+                    new_array.append[num];
+                };
+            };
+        };  
+        return new_array;
+    };*/
 };
