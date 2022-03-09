@@ -19,4 +19,12 @@ actor {
     Note : init_count(5) -> [0,1,2,3,4].
     Note 2 : Do not use Array.append.*/
 
+    public func init_count(n : Nat) : async [Nat]{
+        let buffer : Buffer.Buffer<Nat> = Buffer.Buffer(0);
+        for (num in Iter.range(0, n)){           
+            buffer.add(num);
+        }; 
+        return (buffer.toArray());
+    };
+
 };
