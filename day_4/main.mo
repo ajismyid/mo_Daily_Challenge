@@ -1,8 +1,4 @@
-import Int "mo:base/Int";
-import Array "mo:base/Array";
-import Nat "mo:base/Nat";
-import Char "mo:base/Char";
-import Iter "mo:base/Iter";
+import Custom "custom";
 
 actor {
 
@@ -11,6 +7,12 @@ actor {
      file. In main, create a public function fun that takes no argument 
      but return a value of your custom type.*/
 
-    
-    
+    public func fun() : async Text{
+        type Dog = Custom.Dog;
+        let Roger : Dog = {
+            breed = "Akita";
+            character = "Guard Dog, Easily trained";
+        };
+        return (Roger.breed # " :: " # Roger.character);
+    };
 };

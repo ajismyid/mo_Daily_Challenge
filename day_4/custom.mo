@@ -1,8 +1,8 @@
 module {
 
-    public type Person = {
-        name : Text;
-        age : Nat;
+    public type Dog = {
+        breed : Text;
+        character : Text;
     };  
 
 };
