@@ -1,5 +1,6 @@
 import Custom "custom";
 import Animal "animal";
+import List "mo:base/List";
 
 actor {
 
@@ -44,5 +45,8 @@ actor {
         return (a);
     };
 
+    /*Challenge 5 : In main.mo, import the type List from the base Library and create a list that stores animal.*/
 
-};
+    let animal_list : List.List<Animal> = null;
+
+}; 
