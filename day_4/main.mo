@@ -29,7 +29,20 @@ actor {
     Note : As this is a public function of a module, you don't need to make the return type Async !*/
     // Answer on file animal.mo
 
+    /*Challenge 4 : In main.mo create a public function called create_animal_then_takes_a_break that takes two parameter : 
+    a species of type Text, an number of energy point of type Nat and returns an animal. 
+    This function will create a new animal based on the parameters passed and then put this animal to sleep 
+    before returning it ! 💤*/
     
+    public func create_animal_then_takes_a_break(species : Text, energy : Nat) : async Animal {
+        let a : Animal = {
+            species = species;
+            energy = energy;
+        };
+        let energy_after_sleep : Nat = Animal.animal_sleep(a);
+        var a_new_energy = energy_after_sleep;
+        return (a);
+    };
 
 
 };
