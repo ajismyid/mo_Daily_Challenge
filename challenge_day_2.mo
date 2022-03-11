@@ -1,6 +1,8 @@
 import Array "mo:base/Array";
 import Text "mo:base/Text";
 import C "mo:base/Char";
+import Blob "mo:base/Blob";
+import Iter "mo:base/Iter";
 
 actor {
     /* Challenge 1 : Write a function nat_to_nat8 that converts a Nat n to a Nat8. Make sure that your function never trap. */
@@ -82,10 +84,36 @@ actor {
 
     /*Challenge 8 : Write a function duplicated_character that takes a Text t and returns the first duplicated character in t converted to Text. Note : The function should return the whole Text if there is no duplicate character : duplicated_character("Hello") -> "l" & duplicated_character("World") -> "World".*/
 
-    
+    // still cannot solve the syntax.
 
     /*Challenge 9 : Write a function size_in_bytes that takes Text t and returns the number of bytes this text takes when encoded as UTF-8.*/
 
+    public func size_in_bytes (t : Text) : async Nat {
+        let utf_blob = Text.encodeUtf8(t);
+        return utf_blob.size(); 
+    };
+
     /*Challenge 10 :Implement a function bubble_sort that takes an array of natural numbers and returns the sorted array .*/
+
+    func _swap(array : [Nat], i : Nat, j : Nat) : [Nat] {
+        let mutable_array = Array.thaw<Nat>(array);
+        let tmp = mutable_array[i];
+        mutable_array[i] := mutable_array[j];
+        mutable_array[j] := tmp;
+        return(Array.freeze<Nat>(mutable_array))
+    };
+
+    public func bubble_sort(array : [Nat]) : async [Nat] {
+        var sorted = array;
+        let size = array.size();
+        for(i in Iter.range(0, size - 1)){
+            for(j in Iter.range(0, size - 1 - i)){
+                if(sorted[i] > sorted[i + 1]){
+                    sorted := _swap(sorted, i , j);
+                };
+            };
+        };
+        return (sorted)
+    };
 
 };
