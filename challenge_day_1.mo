@@ -1,6 +1,7 @@
 import Array "mo:base/Array";
 import Nat "mo:base/Nat";
 import Char "mo:base/Char";
+import Iter "mo:base/Iter"
 
 actor {
     /* Challenge 1 : Write a function add that takes two natural numbers n and m and returns the sum */
