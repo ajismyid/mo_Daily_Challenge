@@ -1,6 +1,7 @@
 import N "mo:base/Nat";
 import H "mo:base/Hash";
 import HM "mo:base/HashMap";
+import P "mo:base/Principal";
 
 actor{
     /*Challenge 1 : Create an actor in main.mo and declare the following types.
