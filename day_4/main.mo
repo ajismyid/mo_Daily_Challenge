@@ -1,6 +1,8 @@
 import Custom "custom";
 import Animal "animal";
 import List "mo:base/List";
+import Array "mo:base/Array";
+import List "mo:base/List";
 
 actor {
 
@@ -47,6 +49,18 @@ actor {
 
     /*Challenge 5 : In main.mo, import the type List from the base Library and create a list that stores animal.*/
 
-    let animal_list : List.List<Animal> = null;
+    var animal_list : List<Animal> = null;
+
+    /*Challenge 6 : In main.mo : create a function called push_animal that takes an animal as parameter and returns nothing 
+    this function should add this animal to your list created in challenge 5. 
+    Then create a second functionc called get_animals that takes no parameter but returns an Array that contains all animals stored in the list.*/
+
+    public func push_animal(animal : Animal) {
+        animal_list := List.push<Animal>(animal, animal_list);
+    };
+
+    public func get_animals() : async [Animal] {
+        return List.toArray<Animal>(animal_list);
+    }
 
 }; 
