@@ -1,10 +1,19 @@
+import N "mo:base/Nat";
+import H "mo:base/Hash";
+import HM "mo:base/HashMap";
 
 actor{
     /*Challenge 1 : Create an actor in main.mo and declare the following types.
         TokenIndex of type Nat.
         Error which is a variant type with multiples tags :*/
+        
+    type TokenIndex<Nat> = {};
+    type Error<variant> = {};
 
-    /*Challenge 2 : Declare an HashMap called registry with Key of type TokenIndex and value of type Principal. This will keeep track of which principal owns which TokenIndex.*/
+    /*Challenge 2 : Declare an HashMap called registry with Key of type TokenIndex and value of type Principal. 
+    This will keeep track of which principal owns which TokenIndex.*/
+
+    let registry = HM.HashMap<TokenIndex, Principal>(initCapacity : Nat, keyEq : (K, K) -> Bool, keyHash : K -> Hash.Hash);
 
     /*Challenge 3 : Declare a variable of type Nat called nextTokenIndex, initialized at 0 that will keep track of the number of minted NFTs.
     Write a function called mint that takes no argument.
